@@ -16,7 +16,14 @@ class GoodNewsTableVC: UITableViewController {
         setup()
     }
     
-    func setup(){
+    private func setup(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=il&apiKey=8956235201f942da9134c4969ca0ff3a")!
+        
+        WebService().getArticle(url: url) { (articles) in
+            print(articles?.first)
+        }
+        
     }
 }
